@@ -1,19 +1,24 @@
 {
+	"appId": "live.dgsa.app",
+	"webDir": "dist",
+	"appName": "DGSA",
+	"bundledWebRuntime": "false",
 	"plugins": {
+		"GoogleAuth": {
+			"scopes": [
+				"profile",
+				"email"
+			],
+			"serverClientId": "972313615369-eqo7ccgne9mv66hcm60ooqde64rnm8qm.apps.googleusercontent.com",
+			"forceCodeForRefreshToken": true
+		},
 		"FirebaseAuthentication": {
 			"skipNativeAuth": false,
 			"providers": [
 				"apple.com",
 				"google.com",
-				"facebook.com",
-				"twitter.com",
-				"github.com",
-				"password"
+				"facebook.com"
 			]
 		}
-	},
-	"appId": "live.dgsa.app",
-	"appName": "DGSA",
-	"webDir": "dist",
-	"bundledWebRuntime": false
+	}
 }
