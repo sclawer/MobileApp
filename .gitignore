@@ -29,3 +29,5 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+*/GoogleService-Info.plist
+/ios/App/App/GoogleService-Info.plist
