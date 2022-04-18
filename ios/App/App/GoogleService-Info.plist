@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>317590560542-kuh6psoiervtd87s02769n6smb7vsv3m.apps.googleusercontent.com</string>
+	<string>763418023949-sdnpt39uk4lsspkpmk4q9ra22lf1217l.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.317590560542-kuh6psoiervtd87s02769n6smb7vsv3m</string>
+	<string>com.googleusercontent.apps.763418023949-sdnpt39uk4lsspkpmk4q9ra22lf1217l</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAteFiEKumWBz6oGB0yQD0K9VqcuMV2zJs</string>
+	<string>AIzaSyD3velbnf6XDolkKy7Rk1nlGN6pIkDXQCs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>317590560542</string>
+	<string>763418023949</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>live.dgsa.app</string>
 	<key>PROJECT_ID</key>
-	<string>dgsa-test</string>
+	<string>demofirebase-78ea8</string>
 	<key>STORAGE_BUCKET</key>
-	<string>dgsa-test.appspot.com</string>
+	<string>demofirebase-78ea8.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:317590560542:ios:1f2608cd1f1c65bf86f30f</string>
+	<string>1:763418023949:ios:f01efebb987bf94d85dd44</string>
 </dict>
 </plist>

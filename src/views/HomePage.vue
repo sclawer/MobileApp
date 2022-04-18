@@ -45,13 +45,13 @@ import { isPlatform } from "@ionic/vue";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 const firebaseConfig = {
-  apiKey: "AIzaSyCIMp93ApXrejda5 - SQovAv7fQeOWEPs_0",
-  authDomain: "dgsa-test.firebaseapp.com",
-  projectId: "dgsa-test",
-  storageBucket: "dgsa-test.appspot.com",
-  messagingSenderId: "317590560542",
-  appId: "1:317590560542:web:e5bc5316ab890dab86f30f",
-  measurementId: "G-QMWNNRVPRP",
+  apiKey: "AIzaSyAu9nBu4JmlDV9bpAt7RMCjQsS2nuyqrvE",
+  authDomain: "demofirebase-78ea8.firebaseapp.com",
+  projectId: "demofirebase-78ea8",
+  storageBucket: "demofirebase-78ea8.appspot.com",
+  messagingSenderId: "763418023949",
+  appId: "1:763418023949:web:59c65c0f8c42debb85dd44",
+  measurementId: "G-MWM8ZXWKHG",
 };
 initializeApp(firebaseConfig);
 // const auth = getAuth();
