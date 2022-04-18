@@ -57,10 +57,10 @@ initializeApp(firebaseConfig);
 // const auth = getAuth();
 import { FirebaseAuthentication } from "@capacitor-firebase/authentication";
 // fire addListener place 1 - can see in logfile of IOS but not firing on auth state change
-// FirebaseAuthentication.addListener("authStateChange", (change) => {
-//   console.log("AuthStateChanged fired");
-//   console.log("authStateChange result", change);
-// });
+FirebaseAuthentication.addListener("authStateChange", (change) => {
+  console.log("AuthStateChanged fired");
+  console.log("authStateChange result", change);
+});
 import {
   getAuth,
   GoogleAuthProvider,
