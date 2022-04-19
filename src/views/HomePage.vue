@@ -92,17 +92,17 @@ export default defineComponent({
       return result.token;
     };
     const signInWithGoogle = async () => {
-      // 1. Create credentials on the native layer
       const result = await FirebaseAuthentication.signInWithGoogle();
       if (platform) {
         console.log("Native Platform detected");
         userEmail.value = result.user.displayName;
+        // result is called - should be invoking callback listener ?????
         const credential = result.credential;
         console.log("credential", credential);
         const auth = getAuth();
-        // console.log("currentUser");
-        // const credUser = await signInWithCredential(auth, credential);
-        // console.log("credUser", credUser);
+        // Attempting to get the custom claims held in Firebase Authentication
+        // is erroring in both Safari Logging as well as in the xCode console.
+
         const FBuser = auth.currentUser.getIdTokenResult();
         console.log("CurrUser", FBuser);
         // console.log(result.user.displayName);
