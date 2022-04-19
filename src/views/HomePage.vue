@@ -79,23 +79,6 @@ export default defineComponent({
     IonButton,
   },
   setup() {
-    // onAuthStateChanged(auth, (user) => {
-    //   if (user) {
-    //     // User is signed in, see docs for a list of available properties
-    //     // https://firebase.google.com/docs/reference/js/firebase.User
-    //     const uid = user.uid;
-    //     console.log("User is signed in", uid);
-    //     loggedInUser.value = user;
-    //     // ...
-    //   } else {
-    //     console.log("signout");
-    //     // User is signed out
-    //     // ...
-    //   }
-    // });
-    // function authChange(user) {
-    //   console.log("authChange", user);
-    // }
     const platform = isPlatform("capacitor");
     const loggedInUser = ref(null);
     const userEmail = ref("");
@@ -109,20 +92,10 @@ export default defineComponent({
       return result.token;
     };
     const signInWithGoogle = async () => {
-      // fire addListener place 2 - can see in logfile of IOS but not firing on auth state change
-      // FirebaseAuthentication.addListener("authStateChange", (change) => {
-      //   console.log("AuthStateChanged fired");
-      //   console.log("authStateChange result", change);
-      // });
       // 1. Create credentials on the native layer
       const result = await FirebaseAuthentication.signInWithGoogle();
       if (platform) {
         console.log("Native Platform detected");
-        // fire addListener place 3 - can see in logfile of IOS but not firing on auth state change
-        FirebaseAuthentication.addListener("authStateChange", (change) => {
-          console.log("AuthStateChanged fired");
-          console.log("authStateChange result", change);
-        });
         userEmail.value = result.user.displayName;
         const credential = result.credential;
         console.log("credential", credential);
@@ -134,7 +107,7 @@ export default defineComponent({
         console.log("CurrUser", FBuser);
         // console.log(result.user.displayName);
       } else {
-        console.log("Non IOS platform");
+        console.log("Non native platform");
         // 2. Sign in on the web layer using the id token
         const credential = GoogleAuthProvider.credential(
           result.credential?.idToken

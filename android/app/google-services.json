@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "763418023949",
+    "project_id": "demofirebase-78ea8",
+    "storage_bucket": "demofirebase-78ea8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763418023949:android:9419f02ed8f0f4ae85dd44",
+        "android_client_info": {
+          "package_name": "live.dgsa.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763418023949-jsjh8s0op5g8c4cqih8b7qs12hjepna5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4PGYy0d_HnNZQklFMcnp72FmdJOoHWAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763418023949-jsjh8s0op5g8c4cqih8b7qs12hjepna5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "763418023949-sdnpt39uk4lsspkpmk4q9ra22lf1217l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "live.dgsa.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763418023949:android:4fae3a9baf61636385dd44",
+        "android_client_info": {
+          "package_name": "live.dgsa.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763418023949-jsjh8s0op5g8c4cqih8b7qs12hjepna5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4PGYy0d_HnNZQklFMcnp72FmdJOoHWAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763418023949-jsjh8s0op5g8c4cqih8b7qs12hjepna5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "763418023949-sdnpt39uk4lsspkpmk4q9ra22lf1217l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "live.dgsa.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
