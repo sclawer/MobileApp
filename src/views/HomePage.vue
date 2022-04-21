@@ -41,8 +41,6 @@ import {
 import { defineComponent } from "vue";
 import { ref } from "vue";
 import { isPlatform } from "@ionic/vue";
-
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 const firebaseConfig = {
   apiKey: "AIzaSyAu9nBu4JmlDV9bpAt7RMCjQsS2nuyqrvE",
@@ -54,18 +52,15 @@ const firebaseConfig = {
   measurementId: "G-MWM8ZXWKHG",
 };
 initializeApp(firebaseConfig);
-// const auth = getAuth();
 import { FirebaseAuthentication } from "@capacitor-firebase/authentication";
-// fire addListener place 1 - can see in logfile of IOS but not firing on auth state change
-FirebaseAuthentication.addListener("authStateChange", (change) => {
-  console.log("AuthStateChanged fired");
-  console.log("authStateChange result", change);
-});
+// FirebaseAuthentication.addListener("authStateChange", (change) => {
+//   console.log("AuthStateChanged fired Early Itteration");
+//   console.log("authStateChange result", change);
+// });
 import {
   getAuth,
   GoogleAuthProvider,
   signInWithCredential,
-  // onAuthStateChanged,
 } from "firebase/auth";
 
 export default defineComponent({
@@ -91,37 +86,54 @@ export default defineComponent({
       const result = await FirebaseAuthentication.getIdToken();
       return result.token;
     };
+    function parseJwt(token) {
+      var base64Url = token.split(".")[1];
+      var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      var jsonPayload = decodeURIComponent(
+        atob(base64)
+          .split("")
+          .map(function (c) {
+            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+          })
+          .join("")
+      );
+
+      return JSON.parse(jsonPayload);
+    }
+
     const signInWithGoogle = async () => {
+      FirebaseAuthentication.addListener("authStateChange", (change) => {
+        console.log("AuthStateChanged fired Early signInWithGoogle");
+        console.log("authStateChange result", change);
+      });
+      FirebaseAuthentication.getCurrentUser();
       const result = await FirebaseAuthentication.signInWithGoogle();
       if (platform) {
         console.log("Native Platform detected");
         userEmail.value = result.user.displayName;
-        // result is called - should be invoking callback listener ?????
-        const credential = result.credential;
-        console.log("credential", credential);
-        const auth = getAuth();
-        // Attempting to get the custom claims held in Firebase Authentication
-        // is erroring in both Safari Logging as well as in the xCode console.
-
-        const FBuser = auth.currentUser.getIdTokenResult();
-        console.log("CurrUser", FBuser);
-        // console.log(result.user.displayName);
+        // const result2 = await FirebaseAuthentication.getIdToken();
+        // console.log("result2", result2.claims);
+        console.log("result", result.credential.idToken);
+        console.log("jwt", parseJwt(result.credential.idToken));
       } else {
         console.log("Non native platform");
         // 2. Sign in on the web layer using the id token
         const credential = GoogleAuthProvider.credential(
           result.credential?.idToken
         );
+        const result2 = await FirebaseAuthentication.getIdToken();
+        console.log("result2", result2);
         const auth = getAuth();
         const user = await signInWithCredential(auth, credential);
         const FBuser = await auth.currentUser.getIdTokenResult();
         console.log("claims", FBuser.claims);
-        // console.log(user.user.email);
-        userEmail.value = user.user.email;
+        console.log(user.user.email);
+        // userEmail.value = user.user.email;
       }
     };
     const signOut = async () => {
       await FirebaseAuthentication.signOut();
+      await FirebaseAuthentication.removeAllListeners();
       loggedInUser.value = null;
     };
     return {

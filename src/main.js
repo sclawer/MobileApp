@@ -32,3 +32,4 @@ const app = createApp(App).use(store)
 router.isReady().then(() => {
   app.mount('#app');
 });
+
